@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTok API Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        button { padding: 12px 24px; font-size: 18px; margin: 10px; cursor: pointer; border-radius: 8px; border: none; }
+        .login { background: #010101; color: #fff; }
+        .upload { background: #fe0058; color: #fff; }
+        #output { margin-top: 40px; font-size: 20px; color: #333; }
+    </style>
+    <script>
+        function loginWithTikTok() {
+            document.getElementById("output").innerHTML = "✅ Logged in as demo_user";
+        }
+        function uploadVideo() {
+            document.getElementById("output").innerHTML = "⏳ Uploading video to TikTok...";
+            setTimeout(() => {
+                document.getElementById("output").innerHTML = "🎉 Video published successfully!";
+            }, 2000);
+        }
+    </script>
+</head>
+<body>
+    <h1>TikTok API Integration Demo</h1>
+    <button class="login" onclick="loginWithTikTok()">Login with TikTok</button>
+    <button class="upload" onclick="uploadVideo()">Upload Video</button>
+    <div id="output"></div>
+</body>
+</html>
