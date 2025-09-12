@@ -2,86 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TikTok Automation – Legal Pages</title>
+  <title>TikTok API Demo</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9fafc;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header {
-      background: #010101;
-      color: white;
+      background: #f9f9f9;
       text-align: center;
-      padding: 20px;
+      padding: 50px;
     }
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-    .links a {
-      display: block;
-      margin: 10px 0;
+    button {
+      padding: 12px 24px;
+      margin: 15px;
       font-size: 18px;
-      text-decoration: none;
-      color: #0073e6;
-      font-weight: bold;
-      transition: color 0.3s;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
-    .links a:hover {
-      color: #005bb5;
-    }
-    footer {
-      background: #010101;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-    footer a {
-      color: #66b3ff;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    .login { background: #010101; color: #fff; }
+    .upload { background: #ff0050; color: #fff; }
+    #output { margin-top: 40px; font-size: 20px; color: #333; }
   </style>
+  <script>
+    function loginWithTikTok() {
+      document.getElementById("output").innerHTML =
+        "✅ Logged in as <b>@demo_user</b>";
+    }
+    function uploadVideo() {
+      document.getElementById("output").innerHTML =
+        "⏳ Uploading video to TikTok...";
+      setTimeout(() => {
+        document.getElementById("output").innerHTML =
+          "🎉 Video published successfully!";
+      }, 2000);
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>TikTok Automation – Legal Center</h1>
-  </header>
-
-  <main>
-    <p>Welcome to the official legal and policy center for our TikTok Automation App.  
-       Here you can find all the required documents and contact information.</p>
-
-    <div class="links">
-      <a href="privacy.html">📄 Privacy Policy</a>
-      <a href="terms.html">📜 Terms of Service</a>
-      <a href="callback.html">🔗 Redirect Callback</a>
-    </div>
-  </main>
-
-  <footer>
-    <p>Contact us: <a href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a></p>
-    <p>© 2025 TikTok Automation. All Rights Reserved.</p>
-  </footer>
+  <h1>TikTok API Integration Demo</h1>
+  <button class="login" onclick="loginWithTikTok()">Login with TikTok</button>
+  <button class="upload" onclick="uploadVideo()">Upload Video</button>
+  <div id="output"></div>
 </body>
-</html>
-
 </html>
