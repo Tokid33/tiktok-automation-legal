@@ -1,1 +1,1 @@
-tiktok-domain-verification=YOUR_VERIFICATION_TOKEN
+tiktok-developers-site-verification=QHPZZw9LuUozap6QKQzLgXtMDdUeW7oJ
