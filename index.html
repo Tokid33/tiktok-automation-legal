@@ -1,58 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TikTok Automation Legal Pages</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TikTok Automation — Legal & Contact</title>
+  <meta name="description" content="Official legal pages (Privacy Policy & Terms) for TikTok Automation. Contact: tokidfrance@outlook.com" />
+  <meta name="robots" content="index,follow" />
+  <!-- ------------- TikTok verification -------------
+       When TikTok gives you a meta verification token, replace VERIFY_CODE_HERE with it:
+  <meta name="tiktok-site-verification" content="VERIFY_CODE_HERE">
+  ------------------------------------------------ -->
+  <meta name="tiktok-site-verification" content="VERIFY_CODE_HERE">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TikTok Automation — Legal & Contact" />
+  <meta property="og:description" content="Official legal pages (Privacy Policy & Terms) for TikTok Automation. Contact: tokidfrance@outlook.com" />
+  <meta property="og:url" content="https://glistening-scone-8db96d.netlify.app/" />
+  <meta property="og:site_name" content="TikTok Automation" />
+
+  <link rel="canonical" href="https://glistening-scone-8db96d.netlify.app/" />
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      line-height: 1.6;
-      background: #f8f9fa;
-      color: #333;
-      text-align: center;
+    :root{
+      --bg:#f6f8fb; --card:#ffffff; --accent:#1c7ed6; --muted:#6b7280; --radius:12px;
+      --container:1100px;
     }
-    h1 {
-      color: #111;
-      margin-bottom: 20px;
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      background:linear-gradient(180deg,#f8fbfe 0,#f6f8fb 100%);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    .links {
-      margin-top: 30px;
+    header{
+      padding:30px 24px; display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid rgba(15,23,42,0.04);
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(4px);
     }
-    a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background: #0052cc;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background 0.3s ease;
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#ff2d55,#ff7a00);
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;
+      box-shadow:0 6px 18px rgba(16,24,40,0.06);
     }
-    a:hover {
-      background: #003d99;
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #555;
-    }
+    main{max-width:var(--container);margin:36px auto;padding:0 20px}
+    .hero{background:var(--card);border-radius:12px;padding:34px;box-shadow:0 10px 30px rgba(15,23,42,0.06);}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:10px 0 20px;color:var(--muted)}
+    .buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:10px;text-decoration:none;color:#fff;background:var(--accent);box-shadow:0 6px 18px rgba(28,126,214,0.18)}
+    .btn.secondary{background:#0f172a;color:#fff;opacity:0.95}
+    .card-row{display:flex;gap:18px;margin-top:28px;flex-wrap:wrap}
+    .card{flex:1;min-width:260px;background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(15,23,42,0.04)}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin:40px 0 80px;text-align:center;color:var(--muted)}
+    a.inline{color:var(--accent);text-decoration:underline}
+    @media (max-width:720px){header{padding:18px} .card-row{flex-direction:column}}
   </style>
 </head>
 <body>
-  <h1>Legal Pages for TikTok Automation</h1>
-  <p>Welcome to the official legal section of TikTok Automation.  
-     Please review our policies below:</p>
+  <header>
+    <div class="brand">
+      <div class="logo">TA</div>
+      <div>
+        <div style="font-weight:700">TikTok Automation</div>
+        <div style="font-size:13px;color:var(--muted)">Legal & developer contact</div>
+      </div>
+    </div>
+    <div class="small">Contact: <a href="mailto:tokidfrance@outlook.com" class="inline">tokidfrance@outlook.com</a></div>
+  </header>
 
-  <div class="links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-  </div>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Legal pages for TikTok Automation</h1>
+      <p class="lead">These pages contain our Privacy Policy and Terms of Service required by platforms (TikTok Developers, App Stores, etc.). Use the links below when filling the developer portal fields.</p>
+
+      <div class="buttons" role="navigation" aria-label="Legal links">
+        <a class="btn" href="privacy.html">View Privacy Policy</a>
+        <a class="btn secondary" href="terms.html">View Terms of Service</a>
+      </div>
+
+      <div class="card-row" aria-hidden="false">
+        <div class="card">
+          <strong>Site status</strong>
+          <p class="small">Deployed to: <code>https://glistening-scone-8db96d.netlify.app/</code></p>
+          <p class="small">Use the exact absolute URLs (https + .html) for TikTok dev console.</p>
+        </div>
+
+        <div class="card">
+          <strong>Verification note</strong>
+          <p class="small">Open TikTok developer app → <b>URL properties</b> → add meta tag method. Copy the meta token into the &lt;head&gt; of this page (replace VERIFY_CODE_HERE) and re-deploy. Then click <b>Verify</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:24px">
+      <div class="card" style="padding:18px;">
+        <h3 style="margin-top:0">Quick links for TikTok form</h3>
+        <ul style="color:var(--muted);line-height:1.6">
+          <li><b>Web/Desktop URL:</b> <code>https://glistening-scone-8db96d.netlify.app/</code></li>
+          <li><b>Privacy Policy URL:</b> <code>https://glistening-scone-8db96d.netlify.app/privacy.html</code></li>
+          <li><b>Terms of Service URL:</b> <code>https://glistening-scone-8db96d.netlify.app/terms.html</code></li>
+          <li><b>Contact email:</b> <a href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a></li>
+        </ul>
+        <p class="small">Fill TikTok fields with these exact URLs (HTTPS + .html) and verify via the "URL properties" button.</p>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 TikTok Automation. All rights reserved.  
-    | Contact: <a href="mailto:support@tiktok-automation.app">support@tiktok-automation.app</a>
+    &copy; 2025 TikTok Automation • Built for developer submission<br>
+    Questions? Email <a href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a>
   </footer>
 </body>
 </html>
