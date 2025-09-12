@@ -1,53 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - TikTok Automation</title>
+  <meta charset="utf-8">
+  <title>Privacy Policy — TikTok Automation</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Privacy Policy for TikTok Automation. Contact: tokidfrance@outlook.com" />
+  <meta name="robots" content="index,follow" />
+  <!-- TikTok verification placeholder (replace) -->
+  <meta name="tiktok-site-verification" content="VERIFY_CODE_HERE">
+  <link rel="canonical" href="https://glistening-scone-8db96d.netlify.app/privacy.html" />
+
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; color: #333; }
-    h1, h2 { color: #111; }
-    footer { margin-top: 40px; font-size: 0.9em; color: #555; }
+    body{font-family:Inter,Arial,sans-serif;margin:32px;background:#fff;color:#0b1220}
+    header{margin-bottom:18px}
+    h1{font-size:26px;margin:0 0 8px}
+    .meta{color:#6b7280;margin-bottom:18px}
+    .content{max-width:920px;}
+    section{margin:18px 0;padding:18px;border-radius:10px;background:#fbfdff;border:1px solid rgba(11,17,32,0.04)}
+    h2{margin-top:0}
+    ul{margin:8px 0 8px 20px}
+    footer{margin-top:20px;color:#6b7280}
+    a.inline{color:#1c7ed6}
   </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p><strong>Last Updated:</strong> September 12, 2025</p>
+  <header>
+    <h1>Privacy Policy</h1>
+    <div class="meta">Last updated: 12 September 2025 • Contact: <a class="inline" href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a></div>
+  </header>
 
-  <p>This Privacy Policy describes how we collect, use, and protect your information when you use the <strong>TikTok Automation App</strong>. By accessing or using our service, you agree to the terms of this Privacy Policy.</p>
+  <main class="content" role="main">
+    <section>
+      <h2>Summary</h2>
+      <p>We respect your privacy. This Privacy Policy explains what data we collect when you use the TikTok Automation app and how we use it. We only collect what is necessary to provide the service and to interact with TikTok APIs on your behalf.</p>
+    </section>
 
-  <h2>1. Information We Collect</h2>
-  <p>We may collect the following types of information:</p>
-  <ul>
-    <li>Basic account details necessary for TikTok API authentication</li>
-    <li>Usage data to improve the service</li>
-    <li>Any information you voluntarily provide through support requests</li>
-  </ul>
+    <section>
+      <h2>Data we collect</h2>
+      <ul>
+        <li><b>Authentication data:</b> information returned by TikTok OAuth (user id, username, access token) — used to identify and act on behalf of the user.</li>
+        <li><b>Profile data:</b> basic profile fields required by the integration (display name, avatar URL) — used in-app for display and mapping.</li>
+        <li><b>Optional data:</b> if the user explicitly grants extra scopes (for example posting media), data needed to perform that action.</li>
+      </ul>
+    </section>
 
-  <h2>2. How We Use Information</h2>
-  <p>Your data is used solely for the following purposes:</p>
-  <ul>
-    <li>Enabling login and integration with TikTok’s API</li>
-    <li>Providing automation features within the app</li>
-    <li>Improving our services and user experience</li>
-  </ul>
+    <section>
+      <h2>How we use data</h2>
+      <ul>
+        <li>Authenticate you via TikTok OAuth and maintain a minimal user record to map workflows to accounts.</li>
+        <li>Perform user-authorized actions via TikTok API (only after explicit consent, per TikTok scopes requested).</li>
+        <li>Send transactional emails (account notifications) to <code>tokidfrance@outlook.com</code> as required.</li>
+      </ul>
+    </section>
 
-  <h2>3. Data Sharing</h2>
-  <p>We do not sell, rent, or trade your personal information. Data is only shared with TikTok’s official API services to provide core functionality.</p>
+    <section>
+      <h2>Third parties & storage</h2>
+      <p>We may use third-party hosting and analytics providers. We do not sell or lease your personal information. Access tokens are stored securely and rotated according to best practices.</p>
+      <ul>
+        <li><b>Hosting:</b> Netlify / GitHub Pages (static) or your hosting of choice.</li>
+        <li><b>Credentials:</b> Access tokens stored only to perform user-authorized operations; we do not share tokens with other parties.</li>
+      </ul>
+    </section>
 
-  <h2>4. Data Security</h2>
-  <p>We take security seriously. All communication with TikTok’s API uses secure HTTPS protocols. Sensitive information is stored only for the minimum time required.</p>
+    <section>
+      <h2>User rights</h2>
+      <p>You can request the removal of your data or revoke tokens by contacting <a class="inline" href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a>. We will remove personal data within a reasonable period after verification.</p>
+    </section>
 
-  <h2>5. Your Rights</h2>
-  <p>You may request to delete your data or revoke access at any time by contacting us.</p>
+    <section>
+      <h2>Use of TikTok API & requested scopes</h2>
+      <p>When you connect your TikTok account, we request only the scopes necessary. Example mapping (fill exact scopes in TikTok console):</p>
+      <ul>
+        <li><b>Basic profile scope:</b> to read your id and display name so we can map actions to you.</li>
+        <li><b>Video/content publish scope (if requested):</b> to upload or schedule videos only after your explicit approval in the UI.</li>
+        <li><b>Other read scopes:</b> only to provide the functionality described in the app interface.</li>
+      </ul>
+    </section>
 
-  <h2>6. Contact Us</h2>
-  <p>If you have any questions, please contact us:</p>
-  <p>Email: <a href="mailto:support@tiktok-automation.app">support@tiktok-automation.app</a></p>
-  <p>Official Website: <a href="https://glistening-scone-8db96d.netlify.app">https://glistening-scone-8db96d.netlify.app</a></p>
+    <section>
+      <h2>Security</h2>
+      <p>We follow industry standard security practices. If you believe your account has been compromised, contact <a class="inline" href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a> immediately.</p>
+    </section>
 
-  <footer>
-    &copy; 2025 TikTok Automation. All rights reserved.
-  </footer>
+    <section>
+      <h2>Children</h2>
+      <p>Our service is not directed to children under 13. If we discover data from a child under the applicable age, we will delete it promptly.</p>
+    </section>
+
+    <section>
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy. The “Last updated” date will reflect changes.</p>
+    </section>
+
+    <footer>
+      <p>Contact: <a class="inline" href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a></p>
+      <p><a href="index.html">Back to main</a></p>
+    </footer>
+  </main>
 </body>
 </html>
