@@ -1,2 +1,5 @@
 /tiktok_verification.txt
-  Content-Type: text/plain
+  Content-Type: text/plain; charset=utf-8
+
+/tiktok_verification.txt/
+  Content-Type: text/plain; charset=utf-8
