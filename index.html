@@ -1,154 +1,221 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>TikTok Automation — Demo</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#f7f7f8; --card:#ffffff; --accent:#ff2d6d; --muted:#6b7280; --glass:rgba(255,255,255,0.7);
-    --shadow: 0 6px 30px rgba(16,24,40,0.08);
-    font-family: 'Inter', system-ui, Arial, sans-serif;
-  }
-  html,body{height:100%;margin:0;background:var(--bg);color:#111}
-  .wrap{max-width:980px;margin:36px auto;padding:24px}
-  header{text-align:center;margin:18px 0 28px}
-  h1{font-size:34px;margin:0 0 8px}
-  p.lead{color:var(--muted);margin:0 0 18px}
-  .toolbar{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
-  .btn{border:0;padding:12px 18px;border-radius:10px;cursor:pointer;font-weight:600;box-shadow:var(--shadow)}
-  .btn.black{background:#060607;color:#fff}
-  .btn.pink{background:var(--accent);color:#fff}
-  .btn.ghost{background:#fff;color:#111;border:1px solid #ececec}
-  .card{background:var(--card);border-radius:12px;padding:22px;box-shadow:var(--shadow);margin-bottom:22px}
-  .center{display:flex;align-items:center;justify-content:center}
-  .notice{display:flex;gap:12px;align-items:center;color:var(--muted)}
-  .muted{color:var(--muted)}
-  .footer{background:#0b0b0b;color:#fff;padding:16px 0;margin-top:38px;text-align:center;border-radius:6px}
-  small{color:var(--muted)}
-  pre.json{background:#0b1220;color:#d6f8d6;padding:12px;border-radius:8px;overflow:auto;max-height:220px}
-  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-  input[type="file"]{display:none}
-  .fake-input{display:inline-block;padding:10px 12px;border-radius:8px;border:1px dashed #e6e7eb;color:var(--muted)}
-  .badge{background:#eaf5ff;color:#0366d6;padding:6px 10px;border-radius:999px;font-weight:600}
-  @media(max-width:640px){h1{font-size:26px}.wrap{padding:12px}}
-</style>
+  <meta charset="utf-8" />
+  <title>TikTok Automation — API Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Create, manage, and publish TikTok videos with API-based tools. Demo shows Login, draft upload simulation, Share, and Data Export." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; base-uri 'none'; frame-ancestors 'none';" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta property="og:title" content="TikTok Automation — API Demo" />
+  <meta property="og:description" content="Login, upload (demo), share, and export data — built for TikTok App Review." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tokid33.github.io/tiktok-automation-legal/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23010101'/%3E%3Ctext x='50' y='58' font-size='48' text-anchor='middle' fill='%23fff' font-family='Arial'%3ET%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#0b0c10; --panel:#111317; --muted:#98a2b3;
+      --brand:#ff0050; --brand-2:#00f2ea; --txt:#eef2f6; --ok:#10b981;
+      --btn:#1f232b; --btn-h:#2a2f39; --card:#0f1115; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; color:var(--txt); background:
+        radial-gradient(1000px 600px at 80% -10%, rgba(0,242,234,.15), transparent 40%),
+        radial-gradient(800px 500px at -10% 10%, rgba(255,0,80,.15), transparent 35%),
+        var(--bg);
+      font:16px/1.55 Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+    }
+    header{
+      position:sticky; top:0; z-index:40; backdrop-filter:saturate(1.2) blur(6px);
+      background:linear-gradient(180deg, rgba(11,12,16,.85), rgba(11,12,16,.65));
+      border-bottom:1px solid #1e2127;
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:18px 20px}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px}
+    .badge{
+      display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px;
+      background:linear-gradient(90deg, rgba(255,0,80,.18), rgba(0,242,234,.18));
+      color:#d9dee7; font-size:12px; border:1px solid #2a2f39;
+    }
+    main{padding:40px 20px}
+    .hero{max-width:900px; margin:40px auto 26px; text-align:center}
+    h1{font-size:38px; margin:0 0 14px; letter-spacing:.2px}
+    .lead{color:var(--muted); max-width:720px; margin:0 auto 26px}
+    .btns{display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:22px 0 10px}
+    .btn{
+      appearance:none; border:1px solid #262a33; background:var(--btn); color:var(--txt);
+      padding:12px 16px; border-radius:12px; cursor:pointer; font-weight:600;
+      transition:.2s transform, .2s background, .2s border-color; box-shadow:var(--shadow);
+    }
+    .btn:hover{transform:translateY(-1px); background:var(--btn-h); border-color:#313644}
+    .btn.primary{background:linear-gradient(90deg, var(--brand), var(--brand-2)); border-color:transparent}
+    .btn.primary:hover{filter:saturate(1.05)}
+    .btn.ghost{background:transparent}
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(12,1fr); margin:40px auto; max-width:1000px}
+    .card{
+      grid-column:1/-1; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border:1px solid #20242c; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)
+    }
+    .hint{color:var(--muted); display:flex; align-items:center; gap:10px; justify-content:center}
+    .hint .dot{width:8px; height:8px; background:var(--ok); border-radius:50%; box-shadow:0 0 0 4px rgba(16,185,129,.15)}
+    .links{display:flex; gap:16px; justify-content:center; margin-top:10px}
+    .links a{color:#b5c0d0; text-decoration:none; border-bottom:1px dashed #404654}
+    .links a:hover{color:#fff; border-bottom-color:#6b7280}
+    .how{
+      grid-column:1/-1; display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(240px,1fr))
+    }
+    .step{background:var(--card); border:1px solid #22262f; border-radius:14px; padding:18px}
+    .step h3{margin:0 0 6px; font-size:16px}
+    .step p{margin:0; color:var(--muted); font-size:14px}
+    footer{border-top:1px solid #1f232b; margin-top:36px; background:#0a0b0e}
+    .foot{display:flex; gap:10px; align-items:center; justify-content:center; color:#c7ceda; padding:26px 20px}
+    .foot a{color:#fff}
+    .toast{
+      position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(20px);
+      padding:10px 14px; background:#0e1a12; color:#d7ffea; border:1px solid #193b25; border-radius:10px;
+      opacity:0; pointer-events:none; transition:.25s; box-shadow:var(--shadow)
+    }
+    .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+    @media (max-width:560px){ h1{font-size:30px} }
+  </style>
 </head>
 <body>
-<div class="wrap">
   <header>
-    <h1>TikTok API Integration — Demo</h1>
-    <p class="lead">AI-assisted platform demo: login, upload, share preview and export profile/video data (JSON).</p>
+    <div class="wrap nav">
+      <div class="brand">
+        <span style="width:24px;height:24px;display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand-2));border-radius:6px"></span>
+        TikTok Automation — Demo
+      </div>
+      <span class="badge" title="Built for TikTok App Review">Built for App Review</span>
+    </div>
   </header>
 
-  <div class="toolbar center">
-    <button id="btn-login" class="btn black">Login with TikTok</button>
-    <button id="btn-upload" class="btn pink">Upload Video</button>
-    <button id="btn-share" class="btn ghost">Share (demo)</button>
-    <button id="btn-export" class="btn ghost">Export Data (JSON)</button>
-  </div>
-
-  <div class="card">
-    <div class="row" style="justify-content:space-between">
-      <div>
-        <div class="notice">
-          <span class="badge">ℹ️</span>
-          <div style="margin-left:8px">
-            <div style="font-weight:600">Demo export:</div>
-            <div class="muted">Profile + video stats exported as JSON (simulation)</div>
-          </div>
+  <main class="wrap">
+    <section class="hero">
+      <h1>TikTok API Integration Demo</h1>
+      <p class="lead">Login with TikTok, simulate draft upload, try Web Share, and export profile + video stats as JSON. This is a non-production demo for review.</p>
+      <div class="btns" role="group" aria-label="Demo actions">
+        <button class="btn" id="loginBtn" onclick="loginWithTikTok()">Login with TikTok</button>
+        <button class="btn primary" onclick="uploadVideoDemo()">Upload Video</button>
+        <button class="btn" onclick="shareDemo()">Share (demo)</button>
+        <button class="btn ghost" onclick="exportData()">Export Data</button>
+      </div>
+      <div class="card">
+        <p class="hint">
+          <span class="dot"></span>
+          Data export: profile + video stats exported as JSON (demo). No real posting happens in this environment.
+        </p>
+        <div class="links" aria-label="Legal links">
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html">Terms of Service</a>
         </div>
       </div>
-      <div class="muted">Status: <strong id="login-status">Not connected</strong></div>
+    </section>
+
+    <section class="grid">
+      <div class="how">
+        <div class="step">
+          <h3>1) Login</h3>
+          <p>Opens TikTok OAuth (Login Kit) with scopes <code>user.info.basic</code>, <code>video.upload</code>, <code>video.publish</code>. Redirect to <code>callback.html</code>.</p>
+        </div>
+        <div class="step">
+          <h3>2) Draft upload (demo)</h3>
+          <p>Simulates posting a local video as a draft via Content Posting API. In the demo, we show a success toast.</p>
+        </div>
+        <div class="step">
+          <h3>3) Share</h3>
+          <p>Uses Web Share API (or clipboard fallback) to share the site URL — demo of Share Kit UX.</p>
+        </div>
+        <div class="step">
+          <h3>4) Export</h3>
+          <p>Creates a JSON with mock profile and video stats to demonstrate Data Portability flow.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      Contact: <a href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a> • © 2025 TikTok Automation. All rights reserved.
     </div>
+  </footer>
 
-    <div style="margin-top:18px">
-      <div id="output" class="muted">Use the buttons above to simulate the integration. No real TikTok data is accessed in this demo.</div>
-    </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-    <div style="margin-top:14px">
-      <pre id="jsonOut" class="json" style="display:none"></pre>
-    </div>
-  </div>
+  <script>
+    // ====== CONFIG — put your real client key here when ready ======
+    const CLIENT_KEY = 'YOUR_CLIENT_KEY_HERE';
+    const SCOPES = ['user.info.basic','video.upload','video.publish'];
+    const REDIRECT_URI = new URL('./callback.html', location.href).toString();
+    // TikTok Auth v2 endpoint:
+    // https://www.tiktok.com/v2/auth/authorize/?client_key=...&scope=...&response_type=code&redirect_uri=...&state=...
+    // ===============================================================
 
-  <div class="card center" style="justify-content:center;flex-direction:column;gap:12px">
-    <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a>
-    <small class="muted">Contact: <a href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a></small>
-  </div>
+    function loginWithTikTok(){
+      if (CLIENT_KEY === 'YOUR_CLIENT_KEY_HERE') {
+        toast('Add your CLIENT_KEY in index.html to open real OAuth.');
+        return;
+      }
+      const state = Math.random().toString(36).slice(2);
+      const url = new URL('https://www.tiktok.com/v2/auth/authorize/');
+      url.searchParams.set('client_key', CLIENT_KEY);
+      url.searchParams.set('scope', SCOPES.join(','));
+      url.searchParams.set('response_type', 'code');
+      url.searchParams.set('redirect_uri', REDIRECT_URI);
+      url.searchParams.set('state', state);
+      location.href = url.toString();
+    }
 
-  <div class="footer">
-    © 2025 TikTok Automation — All rights reserved.
-  </div>
-</div>
+    function uploadVideoDemo(){
+      // Demo only — show UX feedback, no real upload.
+      toast('✅ Video published successfully! (demo)');
+    }
 
-<script>
-/*
-  Demo client-side behaviors only.
-  Replace the placeholders with real OAuth redirect & server endpoints in production.
-*/
+    async function shareDemo(){
+      const shareData = { title:'TikTok Automation — Demo', text:'Check this TikTok API demo', url: location.origin + location.pathname };
+      try{
+        if (navigator.share){ await navigator.share(shareData); }
+        else{
+          await navigator.clipboard.writeText(shareData.url);
+          toast('🔗 Link copied to clipboard');
+        }
+      }catch(e){ toast('Share canceled'); }
+    }
 
-const loginBtn = document.getElementById('btn-login');
-const uploadBtn = document.getElementById('btn-upload');
-const shareBtn = document.getElementById('btn-share');
-const exportBtn = document.getElementById('btn-export');
-const status = document.getElementById('login-status');
-const output = document.getElementById('output');
-const jsonOut = document.getElementById('jsonOut');
+    function exportData(){
+      const mock = {
+        exported_at: new Date().toISOString(),
+        profile: {
+          id: 'demo_user_id',
+          username: 'demo_user',
+          display_name: 'Demo User',
+          followers: 12345
+        },
+        videos: [
+          {id:'vid_001', title:'Automation demo 1', views: 53012, likes: 4123, comments: 221},
+          {id:'vid_002', title:'Automation demo 2', views: 28710, likes: 1702, comments: 97}
+        ],
+        note: 'This is a demo export used for App Review. No real user data.'
+      };
+      const blob = new Blob([JSON.stringify(mock, null, 2)], {type:'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'tiktok_demo_export.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+      toast('⬇️ Demo JSON exported');
+    }
 
-let demoProfile = {
-  id: "demo_user_123",
-  display_name: "Demo Creator",
-  followers: 12450,
-  videos: [
-    { id: "v1", title: "AI test", views: 1250, likes: 234 },
-    { id: "v2", title: "Automate shorts", views: 8743, likes: 1200 }
-  ]
-};
-
-function simulateDelay(ms){ return new Promise(r=>setTimeout(r,ms)); }
-
-loginBtn.addEventListener('click', async () => {
-  output.textContent = "Opening TikTok OAuth (demo) …";
-  await simulateDelay(600);
-  // In real app: redirect to TikTok OAuth authorize URL.
-  status.textContent = "Connected as demo_user_123";
-  output.innerHTML = "You are logged in as <strong>demo_user_123</strong>. Ready to upload or export data.";
-});
-
-uploadBtn.addEventListener('click', async () => {
-  if(status.textContent === 'Not connected'){ output.textContent = "Please log in first (demo)."; return; }
-  output.textContent = "Uploading video to TikTok (demo)…";
-  await simulateDelay(1200);
-  // Append a new demo video
-  demoProfile.videos.push({id:"v"+(demoProfile.videos.length+1), title:"New demo video", views:0, likes:0});
-  output.textContent = "🎉 Video published successfully (demo).";
-});
-
-shareBtn.addEventListener('click', async () => {
-  output.textContent = "Preparing share link (demo)…";
-  await simulateDelay(700);
-  output.innerHTML = `Share link (demo): <a href="#" onclick="alert('Demo share link copied')">https://demo.example/share/abc123</a>`;
-});
-
-exportBtn.addEventListener('click', () => {
-  const payload = {
-    profile: { id: demoProfile.id, name: demoProfile.display_name, followers: demoProfile.followers },
-    videos: demoProfile.videos,
-    exported_at: new Date().toISOString()
-  };
-  jsonOut.style.display = "block";
-  jsonOut.textContent = JSON.stringify(payload, null, 2);
-
-  // download JSON
-  const blob = new Blob([JSON.stringify(payload)], {type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = 'tiktok_export_demo.json';
-  document.body.appendChild(a); a.click(); a.remove();
-  URL.revokeObjectURL(url);
-  output.textContent = "JSON exported (demo).";
-});
-</script>
+    function toast(msg){
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(toast._t);
+      toast._t = setTimeout(()=>el.classList.remove('show'), 2200);
+    }
+  </script>
 </body>
 </html>
