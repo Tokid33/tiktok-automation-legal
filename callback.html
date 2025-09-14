@@ -1,16 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OAuth Callback — TikTok Automation</title>
-<style>body{font-family:Arial,Helvetica,sans-serif;padding:24px}</style>
+  <meta charset="utf-8" />
+  <title>Authorization — TikTok Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{margin:0; background:#0b0c10; color:#eef2f6; font:16px/1.5 Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    .box{max-width:700px; margin:14vh auto; padding:26px; border-radius:14px; border:1px solid #22262f; background:#0f1115}
+    h1{margin:0 0 10px}
+    code{background:#111827; padding:2px 6px; border-radius:6px}
+    a{color:#7dd3fc}
+  </style>
 </head>
 <body>
-<h2>OAuth callback</h2>
-<p>This page is used as the redirect URI for the TikTok Login Kit. It receives the authorization code and demonstrates exchange flow in the demo. (In prod, exchange code on server to keep secret keys safe.)</p>
-<script>
-/* Demo: display query params */
-document.body.insertAdjacentHTML('beforeend','<pre>'+decodeURIComponent(location.search||'')+'</pre>');
-</script>
+  <div class="box">
+    <h1>Authorization Result</h1>
+    <p id="status">Reading parameters…</p>
+    <pre id="dump" style="white-space:pre-wrap"></pre>
+    <p><a href="./">Back to Demo</a></p>
+    <p style="color:#98a2b3;font-size:14px">Note: This page only displays <code>code</code> and <code>state</code> returned by TikTok. Token exchange is done server-side in production.</p>
+  </div>
+  <script>
+    const p = new URLSearchParams(location.search);
+    const code = p.get('code'); const state = p.get('state'); const error = p.get('error') || p.get('error_description');
+    const status = document.getElementById('status');
+    const dump = document.getElementById('dump');
+    if (error){ status.textContent = 'Authorization failed'; dump.textContent = String(error); }
+    else if (code){ status.textContent = 'Authorization successful'; dump.textContent = JSON.stringify({code, state}, null, 2); }
+    else { status.textContent = 'No parameters found'; }
+  </script>
 </body>
 </html>
