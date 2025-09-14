@@ -1,46 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>TikTok API Demo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      text-align: center;
-      padding: 50px;
-    }
-    button {
-      padding: 12px 24px;
-      margin: 15px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .login { background: #010101; color: #fff; }
-    .upload { background: #ff0050; color: #fff; }
-    #output { margin-top: 40px; font-size: 20px; color: #333; }
-  </style>
-  <script>
-    function loginWithTikTok() {
-      document.getElementById("output").innerHTML =
-        "✅ Logged in as <b>@demo_user</b>";
-    }
-    function uploadVideo() {
-      document.getElementById("output").innerHTML =
-        "⏳ Uploading video to TikTok...";
-      setTimeout(() => {
-        document.getElementById("output").innerHTML =
-          "🎉 Video published successfully!";
-      }, 2000);
-    }
-  </script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TikTok API Integration Demo</title>
+<link rel="icon" href="/favicon.png" />
+<style>
+  :root{--pink:#ff2d82;--black:#0b0b0b;--bg:#fafafa}
+  body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);margin:0;color:#111}
+  .wrap{max-width:980px;margin:64px auto;text-align:center;padding:24px}
+  h1{font-size:34px;margin:12px 0 36px}
+  .row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  .btn{padding:12px 28px;border-radius:10px;border:0;font-weight:700;cursor:pointer;font-size:16px}
+  .btn-login{background:var(--black);color:#fff}
+  .btn-upload{background:var(--pink);color:#fff}
+  .demo-box{margin-top:36px;background:#fff;border-radius:12px;padding:22px;box-shadow:0 6px 20px rgba(20,20,20,0.06)}
+  .out{margin-top:18px;font-size:18px}
+  a.small{display:block;margin-top:10px;color:#0a66ff}
+  footer{margin-top:64px;padding:18px;background:#0b0b0b;color:#fff;text-align:center}
+  .link{color:#fff;text-decoration:underline}
+</style>
 </head>
 <body>
+<div class="wrap">
   <h1>TikTok API Integration Demo</h1>
-  <button class="login" onclick="loginWithTikTok()">Login with TikTok</button>
-  <button class="upload" onclick="uploadVideo()">Upload Video</button>
-  <div id="output"></div>
+  <div class="row">
+    <button class="btn btn-login" onclick="loginWithTikTok()">Login with TikTok</button>
+    <button class="btn btn-upload" onclick="uploadVideo()">Upload Video</button>
+    <button class="btn" onclick="shareDemo()">Share (demo)</button>
+    <button class="btn" onclick="exportData()">Export Data</button>
+  </div>
+
+  <div class="demo-box">
+    <div id="output" class="out">Click a button to simulate flow. The demo UI replicates what reviewers need to see.</div>
+    <a class="small" href="privacy.html" target="_blank">Privacy Policy</a>
+    <a class="small" href="terms.html" target="_blank">Terms of Service</a>
+  </div>
+</div>
+
+<footer>
+  Contact us: <a class="link" href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a>
+  <div style="margin-top:6px;font-size:13px">© 2025 TikTok Automation — All rights reserved.</div>
+</footer>
+
+<script>
+function loginWithTikTok(){
+  // demo flow: show steps that mirror Login Kit (explain in video)
+  document.getElementById('output').innerHTML = '🔐 Opening TikTok login window... (demo) <br> ✅ Logged in as <b>@demo_user</b>';
+}
+function uploadVideo(){
+  document.getElementById('output').innerHTML = '⏳ Uploading video to TikTok...';
+  setTimeout(()=> {
+    document.getElementById('output').innerHTML = '🎉 Video published successfully! (demo) <br> Webhook: delivery_confirmed';
+  }, 1600);
+}
+function shareDemo(){
+  document.getElementById('output').innerHTML = '↪️ Share Kit demo: user selects "Share to TikTok" and a draft is created.';
+}
+function exportData(){
+  document.getElementById('output').innerHTML = '⬇️ Data export: profile + video stats exported as JSON (demo).';
+}
+</script>
 </body>
 </html>
