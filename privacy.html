@@ -1,48 +1,84 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Privacy Policy — TikTok Automation</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-  body{font-family:Inter,Arial,sans-serif;background:#f7f7f8;margin:0;color:#111}
-  .wrap{max-width:900px;margin:32px auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,0.06)}
-  h1{margin-top:0}
-  p,li{color:#333;line-height:1.5}
-  footer{margin-top:18px;color:#666}
-</style>
+  <meta charset="utf-8" />
+  <title>Privacy Policy — TikTok Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{margin:0; background:#0b0c10; color:#eef2f6; font:16px/1.6 Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    header{background:#0a0b0e; border-bottom:1px solid #1f232b}
+    .wrap{max-width:900px; margin:0 auto; padding:28px 20px}
+    h1{margin:0}
+    main{max-width:900px; margin:0 auto; padding:26px 20px}
+    section{background:#0f1115; border:1px solid #22262f; border-radius:14px; padding:18px 20px; margin:14px 0}
+    h2{margin:0 0 6px; font-size:18px}
+    p,li{color:#cbd5e1}
+    a{color:#7dd3fc}
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <h1>Privacy Policy</h1>
-  <p>Last updated: September 2025</p>
+  <header><div class="wrap"><h1>Privacy Policy</h1></div></header>
+  <main>
+    <section>
+      <p><strong>Effective date:</strong> 2025-01-01</p>
+      <p>This Privacy Policy explains how we process information when you use our demo website (“Service”) designed to showcase TikTok APIs (Login Kit, Content Posting API, Share Kit, Data Portability). This demo does not perform real publishing unless explicitly enabled and authorized.</p>
+    </section>
 
-  <p>TikTok Automation ("we", "our", "the Service") provides a developer integration demo and tooling to create, manage and publish short-form videos via TikTok APIs. This Privacy Policy explains what information we collect, why we collect it, and your choices.</p>
+    <section>
+      <h2>1. Information We Process</h2>
+      <ul>
+        <li><strong>OAuth basic profile (demo):</strong> If you authorize via TikTok, we may receive a temporary authorization <em>code</em>. In this demo environment, we do not exchange it for tokens or store it.</li>
+        <li><strong>Usage data:</strong> Non-identifying data (page views, button clicks) may be collected in aggregate to improve the demo.</li>
+        <li><strong>Content uploads (demo):</strong> The “Upload Video” action here is simulated and does not transfer files to TikTok.</li>
+      </ul>
+    </section>
 
-  <h2>Information we collect</h2>
-  <ul>
-    <li><strong>User profile data:</strong> display name, user id, and public profile fields when you authorize via OAuth.</li>
-    <li><strong>Video metadata:</strong> titles, descriptions, and basic stats (views, likes) for exporting demo or analysis purposes.</li>
-    <li><strong>Usage data:</strong> logs and analytics to improve the demo and troubleshoot issues (IP, timestamps, actions).</li>
-  </ul>
+    <section>
+      <h2>2. How We Use Information</h2>
+      <ul>
+        <li>To demonstrate login, permissions, and user flows required by TikTok App Review.</li>
+        <li>To export mock JSON (Data Portability demo).</li>
+        <li>To improve site reliability and security.</li>
+      </ul>
+      <p><strong>We do not sell personal data.</strong> We do not use personal data for targeted advertising.</p>
+    </section>
 
-  <h2>How we use data</h2>
-  <p>We use collected data to demonstrate app functionality, export profile and video stats to authorized users, and to support debugging and product improvements. We do not share personal data with third parties except when required to operate the integration (TikTok API) or when legally required.</p>
+    <section>
+      <h2>3. Sharing & Transfers</h2>
+      <p>We do not share personal data with third parties except (i) service providers operating our hosting/infrastructure and (ii) as required by law. International transfers may occur due to global hosting; protections such as SCCs may apply where relevant.</p>
+    </section>
 
-  <h2>Data storage & retention</h2>
-  <p>Demo data and exports are retained only as necessary to provide the service. You can request deletion by emailing <a href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a>. We will remove personal data from our systems within a reasonable timeframe.</p>
+    <section>
+      <h2>4. Retention</h2>
+      <p>This demo is designed <em>not</em> to persist user tokens or uploaded media. Any transient data is kept only as necessary for the session.</p>
+    </section>
 
-  <h2>Security</h2>
-  <p>We use industry standard safeguards to protect your information. However, no system is perfectly secure—please do not submit highly sensitive data to the demo service.</p>
+    <section>
+      <h2>5. Your Rights</h2>
+      <p>Depending on your location, you may have rights to access, correct, or delete personal data. Contact us at <a href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a>. We will respond as required by applicable law.</p>
+    </section>
 
-  <h2>Your choices</h2>
-  <p>You can revoke access to the application via your TikTok account permissions. To request data export or deletion, contact <a href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a>.</p>
+    <section>
+      <h2>6. Security</h2>
+      <p>We apply reasonable technical and organizational measures (TLS, least-privilege, no client secrets in the frontend). No method is 100% secure.</p>
+    </section>
 
-  <h2>Contact</h2>
-  <p>Questions or requests: <a href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a>.</p>
+    <section>
+      <h2>7. Children</h2>
+      <p>The Service is not intended for children under the age required by TikTok’s terms and local law. We do not knowingly process children’s data.</p>
+    </section>
 
-  <footer>© 2025 TikTok Automation — Privacy Policy</footer>
-</div>
+    <section>
+      <h2>8. Changes</h2>
+      <p>We may update this Policy. Changes become effective upon posting. Material updates will be indicated by updating the effective date.</p>
+    </section>
+
+    <section>
+      <h2>9. Contact</h2>
+      <p>Email: <a href="mailto:tokidfrance@outlook.com">tokidfrance@outlook.com</a></p>
+    </section>
+
+    <p style="color:#94a3b8">© 2025 TikTok Automation — All rights reserved.</p>
+  </main>
 </body>
 </html>
